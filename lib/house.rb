@@ -30,14 +30,12 @@ class House
     end
   end
 
-  # def area
-  #   area_array = @rooms.map do |room|
-  #     room.area
-  #   end
-  #   area = area_array.map.with_index do |area, index|
-  #     area_array[index]
-  #
-  #   binding.pry
-  # end
+  def price_per_square_foot
+    price_per_foot = price.to_f / @area.to_f
+    price_per_foot.round(2)
+  end
+
+  def rooms_sorted_by_area
+  end
 
 end
