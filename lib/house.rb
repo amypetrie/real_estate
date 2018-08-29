@@ -28,4 +28,10 @@ class House
     end
   end
 
+  def area
+    area_array = @rooms.map do |room|
+      room.area
+    end
+  end
+  
 end
