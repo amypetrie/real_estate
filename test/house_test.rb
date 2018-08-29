@@ -10,11 +10,13 @@ class HouseTest < Minitest::Test
     house = House.new("$400000", "123 sugar lane")
     assert_instance_of House, house
   end
-  
-  def test_it_has_price_and_address_attributes
+
+  def test_it_has_attributes
     house = House.new("$400000", "123 sugar lane")
     assert_equal "$400000", house.price_string
     assert_equal "123 sugar lane", house.address
+    assert_equal 0, house.area
+    assert_equal [], house.rooms
   end
 
   def test_it_converts_price_string_to_integer
@@ -57,7 +59,7 @@ class HouseTest < Minitest::Test
     assert_equal [room_1, room_2], house.rooms_from_category(:bedroom)
   end
 
-  def house_calculates_total_area
+  def test_it_calculates_area
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, 13)
     room_2 = Room.new(:bedroom, 11, 15)
@@ -67,7 +69,7 @@ class HouseTest < Minitest::Test
     house.add_room(room_2)
     house.add_room(room_3)
     house.add_room(room_4)
-    assert_equal 9, house.area
+    assert_equal 1900, house.area
   end
 
 end

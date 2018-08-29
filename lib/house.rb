@@ -2,12 +2,13 @@ require 'pry'
 
 class House
 
-  attr_reader :address, :price_string, :rooms
+  attr_reader :address, :price_string, :rooms, :area
 
   def initialize(price_string, address_string)
     @price_string = price_string
     @address = address_string
     @rooms = []
+    @area = 0
   end
 
   def price
@@ -19,6 +20,7 @@ class House
   end
 
   def add_room(room)
+    @area += room.area
     @rooms << room
   end
 
@@ -28,8 +30,14 @@ class House
     end
   end
 
-  def area
-    @rooms
-  end
+  # def area
+  #   area_array = @rooms.map do |room|
+  #     room.area
+  #   end
+  #   area = area_array.map.with_index do |area, index|
+  #     area_array[index]
+  #
+  #   binding.pry
+  # end
 
 end
